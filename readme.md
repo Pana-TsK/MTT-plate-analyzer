@@ -45,7 +45,7 @@ Step 4: Save Results
 The processed data, including viability percentages, is saved into a new Excel file, with each plate's results in separate sheets.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 Panagiotis Tsampanis

@@ -11,11 +11,38 @@ PlateAnalyzer is a Python project designed to analyze 96-well plate data from la
   
 ## Installation
 
-To get started with PlateAnalyzer, you need to install the required dependencies. You can do this by running the following command:
+To get started with **PlateAnalyzer**, you need to set up the project and install the required dependencies. Follow these steps:
 
+### 1. Clone the repository
+
+First, clone the repository to your local machine using `git`:
+
+```bash
+git clone https://github.com/your-username/PlateAnalyzer.git
+```
+### 2. Navigate to the project directory
+Once the repository is cloned, move into the project directory:
+```bash
+cd "MTT-plate-anaylzer"
+```
+### 3. Install dependencies
+
+Once your virtual environment is activated, install the required dependencies by running the following command:
 ```bash
 pip install -r requirements.txt
 ```
+
+### 4. Use the PlateAnalyzer
+```python
+from plate_analyzer import PlateAnalyzer
+
+# Create an instance of the PlateAnalyzer
+plate_analyzer = PlateAnalyzer(filepath="path_to_rawdata.xlsx")
+
+# Access the cleaned and analyzed data
+print(plate_analyzer.viabilities)
+```
+
 ## Usage
 Perform the MTT assay in a number of 96-well plates, and analyze the data using a Dahaner well plate reader.
 Dilutions can be made in any way that is desired, but the very last row should only contain untreated cells.

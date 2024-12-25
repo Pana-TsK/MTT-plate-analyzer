@@ -18,7 +18,7 @@ To get started with **PlateAnalyzer**, you need to set up the project and instal
 First, clone the repository to your local machine using `git`:
 
 ```bash
-git clone https://github.com/your-username/PlateAnalyzer.git
+git clone https://github.com/Pana-TsK/MTT-plate-analyzer.git
 ```
 ### 2. Navigate to the project directory
 Once the repository is cloned, move into the project directory:

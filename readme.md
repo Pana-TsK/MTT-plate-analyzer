@@ -23,7 +23,8 @@ git clone https://github.com/Pana-TsK/MTT-plate-analyzer.git
 ### 2. Navigate to the project directory
 Once the repository is cloned, move into the project directory:
 ```bash
-cd "MTT-plate-anaylzer"
+cd cd <path_to_cloned_repo>/MTT-plate-analyzer
+
 ```
 ### 3. Install dependencies
 
@@ -33,6 +34,8 @@ pip install -r requirements.txt
 ```
 
 ### 4. Use the PlateAnalyzer
+
+The PlateAnalyzer class can now directly be imported into scripts as desired:
 ```python
 from plate_analyzer import PlateAnalyzer
 

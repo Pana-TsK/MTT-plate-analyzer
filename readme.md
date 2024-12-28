@@ -23,7 +23,7 @@ git clone https://github.com/Pana-TsK/MTT-plate-analyzer.git
 ### 2. Navigate to the project directory
 Once the repository is cloned, move into the project directory:
 ```bash
-cd cd <path_to_cloned_repo>/MTT-plate-analyzer
+cd <path_to_cloned_repo>/MTT-plate-analyzer
 
 ```
 ### 3. Install dependencies

@@ -2,6 +2,8 @@
 
 **PlateAnalyzer** is a Python-based tool designed to automate the processing of MTT assay data. This application takes raw data from Excel files, processes it through multiple stages (plate identification, processing, viability calculation), and saves the results in an easy-to-use format.
 
+MTT assays are widely used in cell biology research to measure cell viability and cytotoxicity in response to various treatments, such as drug candidates or experimental conditions.
+
 ## Features
 - **Load Raw Data**: Supports Excel files as input for MTT assay data.
 - **Identify Plates**: Automatically detects plates and organizes raw data for processing.
@@ -25,6 +27,15 @@ Clone the repository to your local machine:
 git clone https://github.com/Pana-TsK/MTT-plate-analyzer
 cd plate_analyzer
 ```
+## Biological context
+### Control wells
+The bottom row of each plate contains untreated cells (no drugs or treatments), which are assumed to represent 100% viability. These control wells serve as the baseline for normalizing viability calculations.
+
+### Dilution setup
+Drug dilutions or experimental conditions can be organized in any direction (row-wise or column-wise).
+
+### Plate Reader Compatibility
+(Note: Specific plate reader brands will be added soon for reference.)
 
 ## Usage
 ### Running the Application

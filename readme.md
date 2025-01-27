@@ -1,88 +1,123 @@
 # PlateAnalyzer
 
-PlateAnalyzer is a Python project designed to analyze 96-well plate data from laboratory experiments. The project processes absorbance measurements from two wavelengths, calculates cell viability percentages based on untreated control wells, and generates cleaned and normalized data for further analysis.
+**PlateAnalyzer** is a Python-based tool designed to automate the processing of MTT assay data. This application takes raw data from Excel files, processes it through multiple stages (plate identification, processing, viability calculation), and saves the results in an easy-to-use format.
 
 ## Features
+- **Load Raw Data**: Supports Excel files as input for MTT assay data.
+- **Identify Plates**: Automatically detects plates and organizes raw data for processing.
+- **Process Plates**: Cleans, organizes, and prepares the plate data for analysis.
+- **Viability Calculation**: Calculates viabilities from the processed plate data.
+- **Save Results**: Exports calculated viabilities to a specified output file.
 
-- **Data Processing**: Reads raw 96-well plate data from an Excel file and splits it into two 96-well plates for two wavelength absorbance readings.
-- **Plate Normalization**: Corrects the data by calculating the difference between absorbance readings from two wavelengths (570 nm and 630 nm).
-- **Viability Calculation**: Normalizes data to the untreated control wells and calculates cell viability percentages.
-- **Results Export**: Saves the final results as an Excel file with each plate’s data and corresponding viability percentages.
-  
 ## Installation
-
-To get started with **PlateAnalyzer**, you need to set up the project and install the required dependencies. Follow these steps:
-
-### 1. Clone the repository
-
-First, clone the repository to your local machine using `git`:
+### Prerequisites
+- Python 3.8 or higher
+- Required Python libraries (install via `pip`):
 
 ```bash
-git clone https://github.com/Pana-TsK/MTT-plate-analyzer.git
+pip install pandas openpyxl argparse
 ```
-### 2. Navigate to the project directory
-Once the repository is cloned, move into the project directory:
+
+### Clone Repository
+Clone the repository to your local machine:
+
 ```bash
-cd cd <path_to_cloned_repo>/MTT-plate-analyzer
-
-```
-### 3. Install dependencies
-
-Once your virtual environment is activated, install the required dependencies by running the following command:
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Use the PlateAnalyzer
-
-The PlateAnalyzer class can now directly be imported into scripts as desired:
-```python
-from plate_analyzer import PlateAnalyzer
-
-# Create an instance of the PlateAnalyzer
-plate_analyzer = PlateAnalyzer(filepath="path_to_rawdata.xlsx")
-
-# Access the cleaned and analyzed data
-print(plate_analyzer.viabilities)
+git clone https://github.com/yourusername/plate_analyzer.git
+cd plate_analyzer
 ```
 
 ## Usage
-Perform the MTT assay in a number of 96-well plates, and analyze the data using a Dahaner well plate reader.
-Dilutions can be made in any way that is desired, but the very last row should only contain untreated cells.
-An example of how the data should be structured is provided, under the name of rawdata.xlsx.
+### Running the Application
+You can run the application either by specifying the input and output files in the script or using the command-line interface.
 
-To use PlateAnalyzer, simply instantiate the PlateAnalyzer class with the path to your raw data file. Here's an example of how to use the project
+#### Example Script Usage
+Modify the file paths in the script:
+
 ```python
-from PlateAnalyzer import PlateAnalyzer
-
-# Initialize the PlateAnalyzer with your raw data file and optional compounds names
-analyzer = PlateAnalyzer(filepath="rawdata.xlsx", save_results=True, compounds=range(1, 13))
-
-# Print a summary of the results
-print(analyzer)
+input_filepath = r"C:/path/to/rawdata.xlsx"
+output_filepath = r"C:/path/to/results.xlsx"
+analyzer = PlateAnalyzer(file_path=input_filepath, save_results=True)
+analyzer.run(output_filepath)
 ```
-## How MTT Plate Analyzer works
-Step 1: Identify Plates
-The program reads the raw data and identifies individual plates using the word 'Plate:' as a delimiter. It then splits the data into separate plates.
 
-Step 2: Clean Data
-After identifying the plates, the program removes unnecessary rows, columns, and converts the data into numeric values. The two wavelength data are split into two plates: one for 570 nm and one for 630 nm.
+Run the script:
 
-Step 3: Calculate Viabilities
-Viability is calculated by normalizing the difference between the 570 nm and 630 nm absorbance readings, with the untreated control wells used for normalization.
+```bash
+python plate_analyzer.py
+```
 
-Step 4: Save Results
-The processed data, including viability percentages, is saved into a new Excel file, with each plate's results in separate sheets.
+#### Command-Line Usage
+To use the command-line interface, uncomment the argument parser in the script and run:
+
+```bash
+python plate_analyzer.py /path/to/rawdata.xlsx /path/to/results.xlsx
+```
+
+### Input/Output Files
+- **Input File**: An Excel file containing raw MTT assay data.
+- **Output File**: An Excel file to save the processed results (default format).
+
+## Project Structure
+```
+C:.
+│   LICENSE
+│   readme.md
+│   requirements.txt
+│
+├───example_data
+│       rawdata.xlsx
+│
+├───outputs
+│       results.xlsx
+│       results3.xlsx
+│
+└───src
+        data_loader.py
+        plate_analyzer.py
+        plate_identifier.py
+        plate_processor.py
+        results_saver.py
+        utils.py
+        viabilities_calculator.py
+        __init__.py
+```
+
+## Modules
+### `DataLoader`
+Loads raw MTT assay data from the input Excel file.
+
+### `PlateIdentifier`
+Identifies and organizes plates within the raw data.
+
+### `PlateProcessor`
+Cleans and processes the identified plates to prepare for viability calculations.
+
+### `ViabilitiesCalculator`
+Performs viability calculations based on processed plate data.
+
+### `ResultsSaver`
+Exports calculated viabilities to an output Excel file.
+
+## Error Handling
+Each stage of the pipeline has exception handling to notify users of potential issues, such as:
+- File not found errors during data loading.
+- Plate identification failures.
+- Errors during viability calculations or saving results.
+
+## Contributing
+Contributions are welcome! Please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a detailed description of your changes.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See `LICENSE` for more details.
 
-## Author
-Panagiotis Tsampanis
+## Contact
+For questions or support, please contact:
+- **Author**: Panagiotis Tsampanis
+- **Email**: panagiotis@example.com
 
-## Acknowledgements
-Inspired by real-world laboratory data processing needs in the field of Drug Discovery & Cell Biology.
-Thanks to the open-source community for the tools that made this project possible.
+---
+Thank you for using PlateAnalyzer! If you encounter any issues or have suggestions for improvement, feel free to open an issue or submit a pull request.
 
-## Contributions
-Feel free to fork this repository and submit pull requests if you find bugs or want to add new features. If you have any suggestions or improvements, please open an issue!

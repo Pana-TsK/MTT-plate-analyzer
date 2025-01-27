@@ -116,7 +116,7 @@ This project is licensed under the MIT License. See `LICENSE` for more details.
 ## Contact
 For questions or support, please contact:
 - **Author**: Panagiotis Tsampanis
-- **Email**: panagiotis@example.com
+- **Email**: panagiotis.tsampanis@ulb.be
 
 ---
 Thank you for using PlateAnalyzer! If you encounter any issues or have suggestions for improvement, feel free to open an issue or submit a pull request.

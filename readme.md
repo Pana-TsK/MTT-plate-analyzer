@@ -22,7 +22,7 @@ pip install pandas openpyxl argparse
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/plate_analyzer.git
+git clone https://github.com/yourusername/plate_analyzer.git](https://github.com/Pana-TsK/MTT-plate-analyzer
 cd plate_analyzer
 ```
 

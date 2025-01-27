@@ -101,7 +101,7 @@ class PlateAnalyzer:
 if __name__ == "__main__":
     # Example usage: Run from the command line with input and output file paths
     input_filepath = r"C:/Users/panag/OneDrive/Documents/coding/Projects/MTT plate analyzer/example_data/rawdata.xlsx"
-    output_filepath = r"C:/Users/panag/OneDrive/Documents/coding/Projects/MTT plate analyzer/outputs/results3.xlsx"
+    output_filepath = r"C:/Users/panag/OneDrive/Documents/coding/Projects/MTT plate analyzer/outputs/results.xlsx"
 
     # Parse arguments if needed (uncomment to use argparse)
     # args = PlateAnalyzer.parse_args()
